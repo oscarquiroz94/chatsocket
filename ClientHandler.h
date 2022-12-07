@@ -3,6 +3,10 @@
 
 #include "ClientChat.h"
 
+/*
+    CAPA DE CONTROL
+    Gestion de las comunicaciones, envio y recepcion
+*/
 class ClientHandler
 {
     public:

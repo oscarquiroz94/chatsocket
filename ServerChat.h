@@ -17,6 +17,7 @@
 #pragma comment(lib, "Ws2_32.lib")
 
 /*
+    CAPA DE CONTROL
     Servidor socket de escucha y respuesta no-asincrona
     Bloqueo del thread por metodo recv()
 */

@@ -19,6 +19,10 @@
 #pragma comment (lib, "AdvApi32.lib")
 
 
+/*
+    CAPA DE CONTROL
+    Creacion, conexion y limpieza del socket cliente
+*/
 class ClientChat{
     public:
         /*

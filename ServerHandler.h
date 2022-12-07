@@ -6,6 +6,10 @@
 #include <mutex>
 #include <list>
 
+/*
+    CAPA DE CONTROL
+    Gestion de recepcion de mensajes y echo a los clientes
+*/
 class ServerHandler 
 {
     

@@ -8,7 +8,8 @@
 #include <iostream>
 
 /*
-    Capa de visualizacion
+    CAPA DE VISUALIZACION
+    Adicion de caracteristicas a los mensajes recibidos y enviados en consola
 */
 class ChatUI 
 {
