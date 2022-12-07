@@ -15,7 +15,7 @@ void ServerChat::startup(){
     int result = WSAStartup(MAKEWORD(2, 2), &wsaData);
     if (result != NO_ERROR) {
         _chatui.printUI("si","Error iniciando WSAStartup: ", result);
-        //printf("Error iniciando WSAStartup: %ld\n", result);
+
     }else _chatui.printUI("s","Startup Okay");
 }
 
@@ -24,8 +24,8 @@ void ServerChat::create(){
     _listenSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
     if (_listenSocket == INVALID_SOCKET) {
         _chatui.printUI("si","Creacion de Socket fallo con error: ", WSAGetLastError());
-        //printf("Creacion de Socket fallo con error: %ld\n", WSAGetLastError());
         WSACleanup();
+
     }else _chatui.printUI("s","Socket creado");
 }
 
@@ -40,7 +40,6 @@ void ServerChat::bindMethod(){
 
     if (bind(_listenSocket, (SOCKADDR *)& service, sizeof (service)) == SOCKET_ERROR) {
         _chatui.printUI("si","bind fallo con error: ", WSAGetLastError());
-        //printf("bind fallo con error: %ld\n", WSAGetLastError());
         closesocket(_listenSocket);
         WSACleanup();
     }else _chatui.printUI("s","Socket enlazado");
