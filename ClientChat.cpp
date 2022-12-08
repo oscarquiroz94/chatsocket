@@ -52,7 +52,7 @@ SOCKET ClientChat::Conectar(std::string str){
     if (_connectSocket == INVALID_SOCKET) {
         _chatui.printData("s","No es posible conectar a servidor!");
         WSACleanup();
-        return -1;
+        return _connectSocket;
     }else{
         send( _connectSocket, strnick, (int)strlen(strnick), 0 );
         _chatui.printData("s","Conectado, escriba un mensaje!");
