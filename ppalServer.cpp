@@ -1,6 +1,6 @@
 #include "ServerChat.h"
 #include "ServerHandler.h"
-//#include "ChatUI.h"
+#include "ChatUI.h"
 #include <memory>
 #include <list>
 #include <thread>
@@ -16,8 +16,8 @@ int main(){
     
     std::shared_ptr<ServerHandler> svh = std::make_shared<ServerHandler>();
 
-    //ChatUI svui;
-    //svui.printData("s","*** PARA SALIR CIERRE PROGRAMA ***");
+    ChatUI svui;
+    svui.printData("s","*** PARA SALIR CIERRE PROGRAMA ***");
     
     svc.startup();
     svc.create();
