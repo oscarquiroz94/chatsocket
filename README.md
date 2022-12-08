@@ -16,3 +16,6 @@ Si aparece un mensaje de que no se reconoce el comando **cl** debe abrir la cons
 ## Ejecutar
 Debe ejecutar primero ppalServer.exe antes de ppalClient.exe. Abra cuantos CMD desee, uno para el servidor y los demas para clientes
 
+Para ejeuctar servidor escriba en la consola **ppalServer**
+
+Para ejecutar cliente escriba en la consola **ppalClient 127.0.0.1**
