@@ -7,7 +7,7 @@
 ## Compilar
 Abra el **Commad Prompt** y dirijase a la carpeta donde descargó el codigo, por ejemplo: *C:\Users\User\Desktop\PruebasC++\testchat\chatsocket*
 
-Para compilar el codigo del servidor escriba: *cl /W4 /EHsc ppalServer.cpp  ServerChat.cpp ChatUI.cpp ServerHandler.cpp*
+Para compilar el codigo del servidor escriba: *cl /W4 /EHsc ppalServer.cpp  ServerChat.cpp ChatUI.cpp ServerHandler.cpp ChatData.cpp*
 
 Para compilar el codigo del cliente escriba: *cl /W4 /EHsc ppalClient.cpp ChatUI.cpp ClientChat.cpp ClientHandler.cpp*
 
