@@ -10,9 +10,11 @@
 #include <windows.h>
 #include <string.h>
 #include <Ws2tcpip.h>
-#include "ChatUI.h"
 #include <list>
 #include <memory>
+
+#include "ChatUI.h"
+
 
 #pragma comment(lib, "Ws2_32.lib")
 
@@ -50,6 +52,7 @@ class ServerChat
             Esperar conexiones entrantes
         */
         int16_t listenMethod();
+
 
         ~ServerChat() = default;
 

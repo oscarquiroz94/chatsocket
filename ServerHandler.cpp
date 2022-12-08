@@ -20,8 +20,8 @@ void ServerHandler::handler(int sock, std::list<SOCKET>& listClient){
             memset(msg, 0, _default_buflen);
             continue;
         }
-        svui.printUI("sss",nickname,": ",msg);
-
+        _chatui.printData("sss",nickname,": ",msg);
+        _chatdata.printData("sss",nickname,": ",msg);
 
         //Echo a todos los clientes
         mtx.lock();
@@ -35,7 +35,7 @@ void ServerHandler::handler(int sock, std::list<SOCKET>& listClient){
             int iSendResult = send( *index, clientmsg, (int)strlen(clientmsg), 0 );
 
             if (iSendResult == SOCKET_ERROR) {
-                svui.printUI("si","send failed with error: ", WSAGetLastError());
+                _chatui.printData("si","send failed with error: ", WSAGetLastError());
             }
         }
         mtx.unlock();

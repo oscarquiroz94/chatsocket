@@ -1,32 +1,26 @@
-#include "ChatUI.h"
-#include <iostream>
-#include <string>
+#include "ChatData.h"
 
-std::string ChatUI::getNickname(){
+void ChatData::printData(char *szTypes, ... ){
+    FILE *mfile;
+    ChatUI chatui;
+    errno_t err;
+    err = fopen_s(&mfile, _namefile.c_str(), "a");
     
-    printf("*** PARA SALIR CIERRE PROGRAMA ***\n");
-    printf("Escriba su nickname: ");
-    
-    std::string nickstr = "STRNICK";
-    std::string name;
+    if (err != 0){
+        chatui.printData("s","No se pudo abrir el archivo");
+        return;
+    }
 
-    std::getline (std::cin,name);
 
-    name = nickstr + name;
-
-    return name;
-}
-
-void ChatUI::printData(char *szTypes, ... ){
     time(&t);
     localtime_s(&timeinfo, &t);
     char buffertime[100];
     strftime (buffertime,80,"%x-%X ", &timeinfo);
-    printf(buffertime);
+
+    fputs(buffertime, mfile);
 
     va_list vl;
     va_start( vl, szTypes );
-
     for(int i = 0; szTypes[i] != '\0'; ++i ) {
         union Printable_t {
             int     i;
@@ -38,29 +32,30 @@ void ChatUI::printData(char *szTypes, ... ){
         switch( szTypes[i] ) {   
             case 'i':
                 Printable.i = va_arg( vl, int );
-                printf_s( "%i", Printable.i );
+                fprintf(mfile, "%i", Printable.i);
             break;
 
             case 'f':
                 Printable.f = va_arg( vl, float );
-                printf_s( "%f", Printable.f );
+                fprintf(mfile, "%f", Printable.f);
             break;
 
             case 'c':
                 Printable.c = va_arg( vl, char );
-                printf_s( "%c", Printable.c );
+                fprintf(mfile, "%c", Printable.c);
             break;
 
             case 's':
                 Printable.s = va_arg( vl, char * );
-                printf_s( "%s", Printable.s );
+                fprintf(mfile, "%s", Printable.s);
             break;
 
             default:
             break;
         }
     }
-    printf_s("\n");
+    fputs("\n", mfile);
+    fclose(mfile);
     va_end( vl );
+   
 }
-

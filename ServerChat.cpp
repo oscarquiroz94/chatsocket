@@ -1,7 +1,6 @@
 #include "ServerChat.h"
 
 
-
 ServerChat::ServerChat(const int port, const char* ip)
 {
     _port = port;
@@ -14,19 +13,19 @@ void ServerChat::startup(){
     
     int result = WSAStartup(MAKEWORD(2, 2), &wsaData);
     if (result != NO_ERROR) {
-        _chatui.printUI("si","Error iniciando WSAStartup: ", result);
+        _chatui.printData("si","Error iniciando WSAStartup: ", result);
 
-    }else _chatui.printUI("s","Startup Okay");
+    }else _chatui.printData("s","Startup Okay");
 }
 
 
 void ServerChat::create(){
     _listenSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
     if (_listenSocket == INVALID_SOCKET) {
-        _chatui.printUI("si","Creacion de Socket fallo con error: ", WSAGetLastError());
+        _chatui.printData("si","Creacion de Socket fallo con error: ", WSAGetLastError());
         WSACleanup();
 
-    }else _chatui.printUI("s","Socket creado");
+    }else _chatui.printData("s","Socket creado");
 }
 
 
@@ -39,10 +38,10 @@ void ServerChat::bindMethod(){
     //InetPton(AF_INET, (PCWSTR)_IP, &service.sin_addr.s_addr);
 
     if (bind(_listenSocket, (SOCKADDR *)& service, sizeof (service)) == SOCKET_ERROR) {
-        _chatui.printUI("si","bind fallo con error: ", WSAGetLastError());
+        _chatui.printData("si","bind fallo con error: ", WSAGetLastError());
         closesocket(_listenSocket);
         WSACleanup();
-    }else _chatui.printUI("s","Socket enlazado");
+    }else _chatui.printData("s","Socket enlazado");
 }
 
 
@@ -50,15 +49,15 @@ int16_t ServerChat::listenMethod(){
 
     if(listen(_listenSocket, SOMAXCONN) == SOCKET_ERROR ) return -1;
 
-    _chatui.printUI("s","Esperando conexion de cliente...");
+    _chatui.printData("s","Esperando conexion de cliente...");
     _acceptSocket = accept(_listenSocket, NULL, NULL);
 
     if(_acceptSocket != INVALID_SOCKET){
-        _chatui.printUI("sis","Cliente ", (int)_acceptSocket, " conectado");
+        _chatui.printData("sis","Cliente ", (int)_acceptSocket, " conectado");
         
     } else return -1;
 
-    return _acceptSocket;
+    return (int16_t)_acceptSocket;
 }
 
 

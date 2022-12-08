@@ -5,7 +5,7 @@ void ClientChat::Startup(){
 
     int iResult = WSAStartup(MAKEWORD(2,2), &_wsaData);
     if (iResult != 0) {
-        _chatui.printUI("si","WSAStartup fallo con error:", iResult);
+        _chatui.printData("si","WSAStartup fallo con error:", iResult);
     }
 
     ZeroMemory( &_hints, sizeof(_hints) );
@@ -18,7 +18,7 @@ void ClientChat::Resolve(char** argv){
 
     int iResult = getaddrinfo(argv[1], _port, &_hints, &_result);
     if ( iResult != 0 ) {
-        _chatui.printUI("si","Getaddrinfo fallo con error: ", iResult);
+        _chatui.printData("si","Getaddrinfo fallo con error: ", iResult);
         WSACleanup();
     }
 }
@@ -29,7 +29,7 @@ void ClientChat::AttemptConnection(){
         // Crear socket para conectar a server
         _connectSocket = socket(_ptr->ai_family, _ptr->ai_socktype, _ptr->ai_protocol);
         if (_connectSocket == INVALID_SOCKET) {
-            _chatui.printUI("si","Socket fallo con error: ", WSAGetLastError());
+            _chatui.printData("si","Socket fallo con error: ", WSAGetLastError());
             WSACleanup();
         }
 
@@ -50,12 +50,12 @@ SOCKET ClientChat::Conectar(std::string str){
     const char* strnick = str.c_str();
 
     if (_connectSocket == INVALID_SOCKET) {
-        _chatui.printUI("s","No es posible conectar a servidor!");
+        _chatui.printData("s","No es posible conectar a servidor!");
         WSACleanup();
         return -1;
     }else{
         send( _connectSocket, strnick, (int)strlen(strnick), 0 );
-        _chatui.printUI("s","Conectado, escriba un mensaje!");
+        _chatui.printData("s","Conectado, escriba un mensaje!");
         return _connectSocket;
     }
 }

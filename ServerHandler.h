@@ -2,9 +2,11 @@
 #define __SERVERHANDLER__
 
 #include <winsock2.h>
-#include "ChatUI.h"
 #include <mutex>
 #include <list>
+
+#include "ChatUI.h"
+#include "ChatData.h"
 
 /*
     CAPA DE CONTROL
@@ -21,7 +23,8 @@ class ServerHandler
 
     private:
         std::mutex mtx;
-        ChatUI svui;
+        ChatUI _chatui;
+        ChatData _chatdata;
         static const uint16_t _default_buflen = 512;
         bool comparar(const char *cadena, const char *subcadena);
 

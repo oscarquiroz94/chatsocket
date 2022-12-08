@@ -32,7 +32,7 @@ void ClientHandler::receiveFromServer(int sock){
         char* msg = strtok(NULL,",");
         
         if (iResult > 0){
-            svui.printUI("sss",nick,": ",msg);
+            svui.printData("sss",nick,": ",msg);
             printf("---->");
             memset(recvbuf, 0, _default_buflen);
         }

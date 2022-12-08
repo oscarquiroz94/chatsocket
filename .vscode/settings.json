@@ -55,6 +55,10 @@
         "xhash": "cpp",
         "iomanip": "cpp",
         "xlocmon": "cpp",
-        "xloctime": "cpp"
+        "xloctime": "cpp",
+        "chrono": "cpp",
+        "fstream": "cpp",
+        "sstream": "cpp",
+        "xmemory0": "cpp"
     }
 }
