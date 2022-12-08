@@ -1,5 +1,5 @@
 # ChatSocket
- Aplicacion de comunicacion bidireccional servidor-cliente mediante sockets (chat en vivo)
+ Aplicacion de comunicacion socket bidireccional cliente-cliente y servidor (chat en vivo)
  
  Para compilar se requiere Microsoft Visual C++ (MSVC) compiler toolset. 
  Puede encontrar una guia de configuracion en https://code.visualstudio.com/docs/cpp/config-msvc
