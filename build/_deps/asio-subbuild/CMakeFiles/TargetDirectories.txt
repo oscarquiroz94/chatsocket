@@ -1,0 +1,3 @@
+/workspace/build/_deps/asio-subbuild/CMakeFiles/asio-populate.dir
+/workspace/build/_deps/asio-subbuild/CMakeFiles/edit_cache.dir
+/workspace/build/_deps/asio-subbuild/CMakeFiles/rebuild_cache.dir
