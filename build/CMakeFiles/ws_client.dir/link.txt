@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -Xlinker --dependency-file=CMakeFiles/ws_client.dir/link.d CMakeFiles/ws_client.dir/src/client.cpp.o -o bin/ws_client  -lpthread

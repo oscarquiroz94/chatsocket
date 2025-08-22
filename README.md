@@ -1,21 +1,30 @@
-# ChatSocket
- Aplicacion de comunicacion socket bidireccional cliente-cliente y servidor (chat en vivo)
- 
- Para compilar se requiere Microsoft Visual C++ (MSVC) compiler toolset. 
- Puede encontrar una guia de configuracion en https://code.visualstudio.com/docs/cpp/config-msvc
+# C++ WebSocket Echo (websocketpp + standalone Asio)
 
-## Compilar
-Abra el **Commad Prompt** y dirijase a la carpeta donde descargó el codigo, por ejemplo: *C:\Users\User\Desktop\PruebasC++\testchat\chatsocket*
+## Build
 
-Para compilar el codigo del servidor escriba: *cl /W4 /EHsc ppalServer.cpp  ServerChat.cpp ChatUI.cpp ServerHandler.cpp ChatData.cpp*
+```bash
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build -j
+```
 
-Para compilar el codigo del cliente escriba: *cl /W4 /EHsc ppalClient.cpp ChatUI.cpp ClientChat.cpp ClientHandler.cpp*
+## Run
 
-Si aparece un mensaje de que no se reconoce el comando **cl** debe abrir la consola **Developer Command Prompt for VS 2019** dirigirse a la carpeta del codigo y ejecutar **code .** (incluyendo el espacio y el punto). Se abrira el VSCode con el entorno de compilacion apropiado.
+Terminal 1:
+```bash
+./build/bin/ws_server 9002
+```
 
-## Ejecutar
-Debe ejecutar primero ppalServer.exe antes de ppalClient.exe. Abra cuantos CMD desee, uno para el servidor y los demas para clientes
+Terminal 2:
+```bash
+./build/bin/ws_client ws://127.0.0.1:9002 "Hello there"
+```
 
-Para ejeuctar servidor escriba en la consola **ppalServer**
+Expected output in Terminal 2:
+```text
+Received: Hello there
+```
 
-Para ejecutar cliente escriba en la consola **ppalClient 127.0.0.1**
+Notes:
+- Ports and URI are configurable via command-line arguments.
+- Dependencies are fetched automatically at configure time via CMake FetchContent.
+- On Linux, `pthread` is linked automatically.

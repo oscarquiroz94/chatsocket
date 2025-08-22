@@ -1,0 +1,14 @@
+# Target labels
+ asio-populate
+# Source files and their labels
+/workspace/build/_deps/asio-subbuild/CMakeFiles/asio-populate
+/workspace/build/_deps/asio-subbuild/CMakeFiles/asio-populate.rule
+/workspace/build/_deps/asio-subbuild/CMakeFiles/asio-populate-complete.rule
+/workspace/build/_deps/asio-subbuild/asio-populate-prefix/src/asio-populate-stamp/asio-populate-build.rule
+/workspace/build/_deps/asio-subbuild/asio-populate-prefix/src/asio-populate-stamp/asio-populate-configure.rule
+/workspace/build/_deps/asio-subbuild/asio-populate-prefix/src/asio-populate-stamp/asio-populate-download.rule
+/workspace/build/_deps/asio-subbuild/asio-populate-prefix/src/asio-populate-stamp/asio-populate-install.rule
+/workspace/build/_deps/asio-subbuild/asio-populate-prefix/src/asio-populate-stamp/asio-populate-mkdir.rule
+/workspace/build/_deps/asio-subbuild/asio-populate-prefix/src/asio-populate-stamp/asio-populate-patch.rule
+/workspace/build/_deps/asio-subbuild/asio-populate-prefix/src/asio-populate-stamp/asio-populate-test.rule
+/workspace/build/_deps/asio-subbuild/asio-populate-prefix/src/asio-populate-stamp/asio-populate-update.rule

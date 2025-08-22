@@ -1,0 +1,5 @@
+WebSocket echo server listening on ws://0.0.0.0:9002
+[2025-08-22 16:18:09] [connect] WebSocket Connection [::ffff:127.0.0.1]:39572 v13 "WebSocket++/0.8.2" / 101
+[2025-08-22 16:18:09] [application] Client connected
+[2025-08-22 16:18:09] [application] Client disconnected
+[2025-08-22 16:18:09] [disconnect] Disconnect close local:[1000,done] remote:[1000,done]
